@@ -61,16 +61,12 @@ def is_word_guessed(secret_word, letters_guessed):
 	False otherwise
 	'''
 	num_of_letters = 0
-	letter_found = False
+	word_set = set(secret_word)	
 	
-	for char1 in secret_word:
-		for char2 in letters_guessed:
-			if char1 == char2:
-				letter_found = True
-		if letter_found == True:
+	for char1 in word_set:
+		if char1 in letters_guessed:
 			num_of_letters += 1
-		letter_found = False
-	return num_of_letters == len(secret_word)
+	return num_of_letters == len(word_set)
 
 def is_guess_right(secret_word, guessed_letter):
 	'''
